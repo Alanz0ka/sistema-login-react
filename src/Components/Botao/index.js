@@ -5,13 +5,14 @@ const Botao = ({
     type,
     text,
     onClick,
-    // disabled
+    disabled
 }) => {
     return ( 
         <BotaoCustomizado
             type={type}
             text={text}
-            onClick={onClick}>
+            onClick={onClick}
+            disabled={disabled}>
                 {text}
         </BotaoCustomizado>
      );

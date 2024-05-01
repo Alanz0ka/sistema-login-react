@@ -1,17 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Container, Form } from './styles';
 import Input from '../../Components/input/index';
 import Botao from '../../Components/Botao';
-
+import { validarEmail, validarSenha } from '../../utils/validadores';
 
 const Login = () => {
-    const handleSubmit = async () => {
-        alert("Login")
+    const [loading, setLoading] = useState()
+    const [form, setForm] = useState([])
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try{
+            setLoading(true)
+            alert("Login")
+            setLoading(false)
+        }
+        catch(err){
+            alert("Algo deu errado com o Login"+ err)
+        }
     }
 
     const handleChange = (event)=>{
         console.log("Digitando...", event.target.name ,event.target.value)
+        setForm({...form, [event.target.name]: event.target.value})
+        console.log(`Form: ${form}`)
     }
+
+    const validadorInput = () => {
+        return validarEmail(form.email) && validarSenha(form.password)
+    }
+
+    console.log(validadorInput())
+
     return ( 
         <Container>
            <Form>
@@ -32,7 +52,7 @@ const Login = () => {
             type="submit"
             text="Login"
             onClick={handleSubmit}
-            // disabled
+            disabled={loading === true || !validadorInput()}
            />
             
             <div>
