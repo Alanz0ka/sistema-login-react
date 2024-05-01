@@ -1,9 +1,19 @@
 import React from 'react';
 import { BotaoCustomizado } from './style';
 
-const Botao = () => {
+const Botao = ({
+    type,
+    text,
+    onClick,
+    // disabled
+}) => {
     return ( 
-        <BotaoCustomizado/>
+        <BotaoCustomizado
+            type={type}
+            text={text}
+            onClick={onClick}>
+                {text}
+        </BotaoCustomizado>
      );
 }
  

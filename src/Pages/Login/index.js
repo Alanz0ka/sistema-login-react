@@ -5,27 +5,35 @@ import Botao from '../../Components/Botao';
 
 
 const Login = () => {
+    const handleSubmit = async () => {
+        alert("Login")
+    }
+
     const handleChange = (event)=>{
         console.log("Digitando...", event.target.name ,event.target.value)
     }
-
     return ( 
         <Container>
            <Form>
            <h1>Faça o seu login 👋</h1>
            <Input
-             name="password"
+             name="email"
              placeholder="Digite Sua Senha"
              onChange={handleChange}
-             type="password"
+             type="email"
            />
            <Input
              name="password"
-             placeholder="Digite Sua Senha"
+             placeholder='Digite Sua Senha'
              onChange={handleChange}
              type="password"
            />
-           <Botao/>
+           <Botao
+            type="submit"
+            text="Login"
+            onClick={handleSubmit}
+            // disabled
+           />
             
             <div>
                 <p>Não possui conta?</p>

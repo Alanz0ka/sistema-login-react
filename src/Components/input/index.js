@@ -1,9 +1,20 @@
 import React from 'react'
 import { InputCustomizado } from './styles';
 
-const Input = () => {
+const Input = ({
+    name,
+    placeholder,
+    onChange,
+    type,
+}) => {
     return ( 
-        <InputCustomizado/>
+        <InputCustomizado
+            name={name}
+            placeholder={placeholder}
+            onChange={onChange}
+            type={type}
+
+        />
      );
 }
  
