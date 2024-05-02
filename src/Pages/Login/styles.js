@@ -7,7 +7,7 @@ export const Container = styled.div`
     height: 100vh;
     min-width: 100vw;
     background-color: #383838
-`
+`;
 
 export const Form = styled.form`
     display: flex;

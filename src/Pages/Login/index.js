@@ -3,16 +3,26 @@ import { Container, Form } from './styles';
 import Input from '../../Components/input/index';
 import Botao from '../../Components/Botao';
 import { validarEmail, validarSenha } from '../../utils/validadores';
+import UserService from '../../Services/UserService';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+const userService = new UserService()
 
 const Login = () => {
     const [loading, setLoading] = useState()
     const [form, setForm] = useState([])
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try{
             setLoading(true)
-            alert("Login")
+            const response = await userService.login(form)
+            console.log(`response do login: ${response}`)
+            if(response === true){
+                alert("Usuario logado com sucesso")
+                navigate("/home")
+            }
             setLoading(false)
         }
         catch(err){
@@ -27,10 +37,10 @@ const Login = () => {
     }
 
     const validadorInput = () => {
-        return validarEmail(form.email) && validarSenha(form.password)
+        return validarEmail(form.email) && validarSenha(form.senha)
     }
 
-    console.log(validadorInput())
+    // console.log(validadorInput())
 
     return ( 
         <Container>
@@ -43,7 +53,7 @@ const Login = () => {
              type="email"
            />
            <Input
-             name="password"
+             name="senha"
              placeholder='Digite Sua Senha'
              onChange={handleChange}
              type="password"
