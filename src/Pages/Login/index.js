@@ -31,7 +31,6 @@ const Login = () => {
     }
 
     const handleChange = (event)=>{
-        console.log("Digitando...", event.target.name ,event.target.value)
         setForm({...form, [event.target.name]: event.target.value})
 
     }

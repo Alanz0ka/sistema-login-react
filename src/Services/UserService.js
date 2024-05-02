@@ -15,7 +15,8 @@ export default class UserService {
             if (data) {
                 localStorage.setItem("nome", data.user.nome);
                 localStorage.setItem("email", data.user.email);
-                localStorage.setItem("token", data.token.token);
+                localStorage.setItem("token", data.token);
+                console.log(data)
                 return true;
             }
         } catch (error) {
@@ -29,12 +30,12 @@ export default class UserService {
     }
 
     usuarioAutenticado() {
-        return localStorage.getItem("token") !== undefined ? true : false
+        const token = localStorage.getItem("token");
+        console.log(token); // Para debug, verificar se o token está sendo recuperado corretamente
+        return token !== null; // Retorna true se o token existir, caso contrário, retorna false
     }
 
     async logout(){
-        localStorage.removeItem("token")
-        localStorage.removeItem("nome")
-        localStorage.removeItem("email")
+        localStorage.clear()
     }
 }
