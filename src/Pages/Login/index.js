@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Container, Form } from './styles';
+import { Container, Form, SubContainerSign } from './styles';
 import Input from '../../Components/input/index';
 import Botao from '../../Components/Botao';
 import { validarEmail, validarSenha } from '../../utils/validadores';
@@ -33,7 +33,7 @@ const Login = () => {
     const handleChange = (event)=>{
         console.log("Digitando...", event.target.name ,event.target.value)
         setForm({...form, [event.target.name]: event.target.value})
-        console.log(`Form: ${form}`)
+
     }
 
     const validadorInput = () => {
@@ -65,10 +65,10 @@ const Login = () => {
             disabled={loading === true || !validadorInput()}
            />
             
-            <div>
+            <SubContainerSign>
                 <p>Não possui conta?</p>
-                <a>Cadastrar</a>
-            </div>
+                <NavLink to="/cadastrar">Cadastrar</NavLink>
+            </SubContainerSign>
            </Form>
         </Container>
      )

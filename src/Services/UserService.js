@@ -24,7 +24,17 @@ export default class UserService {
         return false; // Retorna false em caso de erro
     }
 
+    async cadastrar(dados){
+        return this.axios.post("/usuarios/cadastro", dados)
+    }
+
     usuarioAutenticado() {
         return localStorage.getItem("token") !== undefined ? true : false
+    }
+
+    async logout(){
+        localStorage.removeItem("token")
+        localStorage.removeItem("nome")
+        localStorage.removeItem("email")
     }
 }
