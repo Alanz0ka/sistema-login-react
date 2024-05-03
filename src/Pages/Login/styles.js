@@ -6,7 +6,7 @@ export const Container = styled.div`
     align-items: center;
     height: 100vh;
     min-width: 100vw;
-    background-color: #383838
+    background-color: #121212;
 `;
 
 export const Form = styled.form`
@@ -15,16 +15,17 @@ export const Form = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #201d1d;
-    border-radius: 5px;
-    width: 100%;
-    max-width:450px;
+    width: 50%;
+    min-width: 300px;
     gap: 30px 0px;
+    @media (max-width: 670px) {
+        width: 100%;
+       }
 
     h1 {
         color: white;
-        font-size: 20px;
-        font-weight: light;
+        font-size: 24px;
+        font-weight: 700;
     }
 
     p {
@@ -34,9 +35,38 @@ export const Form = styled.form`
     }
 
     a{
-        color: white;
+        color: #121212;
+        font-weight: bold;
         font-size: 14px;
     }
+`
+
+export const FormWrapper = styled.div`
+    display: flex;
+    width: 60%;
+    gap: 10px 0px;
+    background-color: #00C853;
+    border-radius: 5px;
+    justify-content: space-arround;
+    flex-wrap: wrap;
+    align-items: center;
+    @media (max-width: 1000px) {
+        width: 90%;
+      }
+    @media (max-width: 670px) {
+       jusitfy-content: center;
+      }
+`
+
+export const FormImageContainer = styled.div`
+    width: 50%;
+    height: 100%;
+    padding: 7%;
+    display: flex;
+    min-width: 300px;
+    @media (max-width: 670px) {
+        width: 100%;
+       }
 `
 export const SubContainerSign = styled.div`
     display: flex;
