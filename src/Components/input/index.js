@@ -6,15 +6,21 @@ const Input = ({
     placeholder,
     onChange,
     type,
+    error,
+    value,
 }) => {
     return ( 
-        <InputCustomizado
+<>
+<InputCustomizado
             name={name}
             placeholder={placeholder}
             onChange={onChange}
             type={type}
+            error={error}
+            value={value || ''}
 
         />
+</>
      );
 }
  
